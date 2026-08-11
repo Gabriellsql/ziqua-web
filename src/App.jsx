@@ -1,6 +1,7 @@
 import Background from './components/Background'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import QuienesSomos from './components/QuienesSomos'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <div className="relative z-10">
         <Navbar />
         <Hero />
+        <QuienesSomos />
       </div>
     </div>
   )
