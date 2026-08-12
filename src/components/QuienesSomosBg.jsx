@@ -40,13 +40,13 @@ export default function QuienesSomosBg() {
       ctx.beginPath()
       pts.forEach(([px, py], i) => i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py))
       ctx.closePath()
-      ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 0.8; ctx.stroke()
+      ctx.strokeStyle = '#185FA5'; ctx.lineWidth = 0.8; ctx.stroke()
       ctx.restore()
     }
 
     const drawCircuit = (W, H) => {
       ctx.save(); ctx.globalAlpha = 0.06
-      ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 1
+      ctx.strokeStyle = '#185FA5'; ctx.lineWidth = 1
       const lines = [
         [0, H*0.2, W*0.3, H*0.2], [W*0.3, H*0.2, W*0.3, H*0.5],
         [W*0.3, H*0.5, W*0.6, H*0.5], [W*0.6, H*0.5, W*0.6, H*0.8],
@@ -59,7 +59,7 @@ export default function QuienesSomosBg() {
         ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke()
       })
       const dots = [[W*0.3,H*0.2],[W*0.3,H*0.5],[W*0.6,H*0.5],[W*0.15,H*0.35],[W*0.7,H*0.4]]
-      ctx.globalAlpha = 0.14; ctx.fillStyle = '#7c3aed'
+      ctx.globalAlpha = 0.14; ctx.fillStyle = '#185FA5'
       dots.forEach(([x,y]) => { ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2); ctx.fill() })
       ctx.restore()
     }
@@ -67,7 +67,7 @@ export default function QuienesSomosBg() {
     const animate = () => {
       const { width: W, height: H } = canvas
       ctx.clearRect(0, 0, W, H)
-      ctx.fillStyle = '#f5f0ff'; ctx.fillRect(0, 0, W, H)
+      ctx.fillStyle = '#f0f6ff'; ctx.fillRect(0, 0, W, H)
 
       drawCircuit(W, H)
 
@@ -89,7 +89,7 @@ export default function QuienesSomosBg() {
         if (n.y < 0 || n.y > H) n.vy *= -1
         ctx.save(); ctx.globalAlpha = n.op
         ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
-        ctx.fillStyle = '#7c3aed'; ctx.fill(); ctx.restore()
+        ctx.fillStyle = '#185FA5'; ctx.fill(); ctx.restore()
       })
 
       for (let i = 0; i < nodes.length; i++) {
@@ -99,7 +99,7 @@ export default function QuienesSomosBg() {
           const dist = Math.sqrt(dx*dx + dy*dy)
           if (dist < 130) {
             ctx.save(); ctx.globalAlpha = (1 - dist / 130) * 0.12
-            ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 0.8
+            ctx.strokeStyle = '#185FA5'; ctx.lineWidth = 0.8
             ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke(); ctx.restore()
           }
@@ -109,7 +109,7 @@ export default function QuienesSomosBg() {
       const pulseR = 20 + Math.sin(t * 0.05) * 8
       ctx.save(); ctx.globalAlpha = 0.08
       ctx.beginPath(); ctx.arc(W * 0.72, H * 0.38, pulseR, 0, Math.PI * 2)
-      ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore()
+      ctx.strokeStyle = '#185FA5'; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore()
 
       t++
       animId = requestAnimationFrame(animate)
