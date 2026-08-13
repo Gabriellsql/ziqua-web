@@ -4,7 +4,9 @@ import Hero from './components/Hero'
 import QuienesSomos from './components/QuienesSomos'
 import Servicios from './components/Servicios'
 import ComoFunciona from './components/ComoFunciona'
-
+import Tecnologia from './components/Tecnologia'
+import ImpactoAmbiental from './components/ImpactoAmbiental'
+import Contacto from './components/Contacto'
 function App() {
   return (
     <div className="min-h-screen relative">
@@ -15,6 +17,9 @@ function App() {
         <QuienesSomos />
         <Servicios />
         <ComoFunciona />
+        <Tecnologia />
+        <ImpactoAmbiental />
+        <Contacto />
       </div>
     </div>
   )
