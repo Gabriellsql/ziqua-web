@@ -49,7 +49,7 @@ const impactos = [
 
 export default function ImpactoAmbiental() {
   return (
-    <div className="relative overflow-hidden py-24 px-12" style={{ background: '#f0fdf4' }}>
+    <div id="impacto" className="relative overflow-hidden py-24 px-12" style={{ background: '#f0fdf4' }}>
       <ImpactoAmbientalBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">

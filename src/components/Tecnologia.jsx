@@ -55,7 +55,7 @@ const tecnologias = [
 
 export default function Tecnologia() {
   return (
-    <div className="relative overflow-hidden py-24 px-12" style={{ background: '#fff8f0' }}>
+    <div id="tecnologia" className="relative overflow-hidden py-24 px-12" style={{ background: '#fff8f0' }}>
       <TecnologiaBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">

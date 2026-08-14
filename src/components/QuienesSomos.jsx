@@ -24,7 +24,7 @@ const stats = [
 
 export default function QuienesSomos() {
   return (
-    <div className="relative min-h-screen flex items-center overflow-hidden" style={{ background: '#f0f6ff' }}>
+    <div id="quienes-somos" className="relative min-h-screen flex items-center overflow-hidden" style={{ background: '#f0f6ff' }}>
       <QuienesSomosBg />
 
       <div className="relative z-10 max-w-6xl mx-auto px-12 py-24 w-full">

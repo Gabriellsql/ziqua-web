@@ -46,7 +46,7 @@ const pasos = [
 
 export default function ComoFunciona() {
   return (
-    <div className="relative overflow-hidden py-24 px-12" style={{ background: '#f0faf8' }}>
+    <div id="como-funciona" className="relative overflow-hidden py-24 px-12" style={{ background: '#f0faf8' }}>
       <ComoFuncionaBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">

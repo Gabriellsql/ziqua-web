@@ -7,6 +7,7 @@ import ComoFunciona from './components/ComoFunciona'
 import Tecnologia from './components/Tecnologia'
 import ImpactoAmbiental from './components/ImpactoAmbiental'
 import Contacto from './components/Contacto'
+import Footer from './components/Footer'
 function App() {
   return (
     <div className="min-h-screen relative">
@@ -20,6 +21,7 @@ function App() {
         <Tecnologia />
         <ImpactoAmbiental />
         <Contacto />
+        <Footer />
       </div>
     </div>
   )

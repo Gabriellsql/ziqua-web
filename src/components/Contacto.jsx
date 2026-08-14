@@ -49,7 +49,7 @@ export default function Contacto() {
   }
 
   return (
-    <div className="relative overflow-hidden py-24 px-12" style={{ background: '#eef5fd' }}>
+    <div id="contacto" className="relative overflow-hidden py-24 px-12" style={{ background: '#eef5fd' }}>
       <ContactoBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">

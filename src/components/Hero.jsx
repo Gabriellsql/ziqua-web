@@ -36,7 +36,7 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-12 py-20 overflow-hidden" style={{ background: '#eef5fd' }}>
+    <div id="Hero" className="relative min-h-screen flex items-center justify-center px-12 py-20 overflow-hidden" style={{ background: '#eef5fd' }}>
   <HeroBg />
 
       {/* Grid de fondo */}

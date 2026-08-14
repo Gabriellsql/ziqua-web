@@ -41,7 +41,7 @@ const servicios = [
 
 export default function Servicios() {
   return (
-    <div className="relative overflow-hidden py-24 px-12" style={{ background: '#eef5fd' }}>
+    <div id="servicios" className="relative overflow-hidden py-24 px-12" style={{ background: '#eef5fd' }}>
       <ServicesBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">
