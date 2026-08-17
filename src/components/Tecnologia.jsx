@@ -5,7 +5,7 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6, delay }
+  transition: { duration: 0.5, delay }
 })
 
 const tecnologias = [
@@ -55,7 +55,11 @@ const tecnologias = [
 
 export default function Tecnologia() {
   return (
-    <div id="tecnologia" className="relative overflow-hidden py-24 px-12" style={{ background: '#fff8f0' }}>
+    <div
+      id="tecnologia"
+      className="relative overflow-hidden py-24 px-12"
+      style={{ background: '#fff8f0' }}
+    >
       <TecnologiaBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -70,7 +74,7 @@ export default function Tecnologia() {
               animate={{ opacity: [1, 0.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="w-1.5 h-1.5 rounded-full"
-              style={{ background: '#d97706' }}
+              style={{ background: '#d97706', willChange: 'opacity' }}
             />
             Tecnología
           </motion.div>
@@ -92,7 +96,7 @@ export default function Tecnologia() {
           </motion.p>
         </div>
 
-        {/* Grid de tecnologías */}
+        {/* Grid */}
         <div className="grid grid-cols-3 gap-6 items-stretch">
           {tecnologias.map((tech, i) => (
             <motion.div
@@ -100,18 +104,15 @@ export default function Tecnologia() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.4, delay: 0.06 + i * 0.08 }}
+              whileHover={{ y: -8 }}
               className="rounded-2xl p-7 flex flex-col"
               style={{
                 background: 'rgba(255,255,255,0.88)',
                 border: `1px solid ${tech.color}22`,
-                boxShadow: `0 16px 40px rgba(4,44,83,0.07), 0 2px 8px ${tech.color}15`,
+                boxShadow: `0 16px 40px rgba(4,44,83,0.06), 0 2px 8px ${tech.color}12`,
                 backdropFilter: 'blur(10px)',
-                transform: i % 2 === 0
-                  ? 'perspective(700px) rotateY(3deg) rotateX(1deg)'
-                  : 'perspective(700px) rotateY(-3deg) rotateX(1deg)',
-                transformStyle: 'preserve-3d',
+                willChange: 'transform',
               }}
             >
               {/* Ícono */}
@@ -119,19 +120,28 @@ export default function Tecnologia() {
                 animate={{ scale: [1, 1.08, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
                 className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5 relative"
-                style={{ background: `${tech.color}12` }}
+                style={{
+                  background: `${tech.color}12`,
+                  willChange: 'transform',
+                }}
               >
                 {tech.icon}
                 <motion.div
                   animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
                   transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
                   className="absolute inset-0 rounded-xl"
-                  style={{ border: `1px solid ${tech.color}40` }}
+                  style={{
+                    border: `1px solid ${tech.color}40`,
+                    willChange: 'transform, opacity',
+                  }}
                 />
               </motion.div>
 
               {/* Título */}
-              <h3 className="font-black text-base mb-2" style={{ color: '#042C53', letterSpacing: '-0.3px' }}>
+              <h3
+                className="font-black text-base mb-2"
+                style={{ color: '#042C53', letterSpacing: '-0.3px' }}
+              >
                 {tech.title}
               </h3>
 
@@ -143,7 +153,8 @@ export default function Tecnologia() {
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-auto">
                 {tech.tags.map((tag, j) => (
-                  <span key={j}
+                  <span
+                    key={j}
                     className="text-xs font-bold px-2.5 py-1 rounded-full"
                     style={{ background: `${tech.color}12`, color: tech.color }}
                   >

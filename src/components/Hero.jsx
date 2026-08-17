@@ -40,15 +40,20 @@ export default function Hero() {
   }
 
   return (
-    <div id="hero" className="relative min-h-screen flex items-center justify-center px-12 py-20 overflow-hidden" style={{ background: '#eef5fd' }}>
+    <div
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center px-12 py-20 overflow-hidden"
+      style={{ background: '#eef5fd' }}
+    >
       <HeroBg />
 
       {/* Grid de fondo */}
-      <div className="absolute inset-0 z-0"
+      <div
+        className="absolute inset-0 z-0"
         style={{
           backgroundImage: `linear-gradient(rgba(24,95,165,0.06) 1px, transparent 1px),
                             linear-gradient(90deg, rgba(24,95,165,0.06) 1px, transparent 1px)`,
-          backgroundSize: '48px 48px'
+          backgroundSize: '48px 48px',
         }}
       />
 
@@ -57,7 +62,13 @@ export default function Hero() {
         animate={{ scale: [1, 1.15, 1], opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute w-[600px] h-[600px] rounded-full z-0"
-        style={{ background: 'radial-gradient(circle, rgba(24,95,165,0.10) 0%, transparent 70%)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}
+        style={{
+          background: 'radial-gradient(circle, rgba(24,95,165,0.10) 0%, transparent 70%)',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
+          willChange: 'transform, opacity',
+        }}
       />
 
       <div className="relative z-10 flex items-center gap-16 max-w-6xl w-full">
@@ -65,32 +76,47 @@ export default function Hero() {
         {/* IZQUIERDA */}
         <div className="flex-1">
           <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 border text-xs font-semibold px-4 py-2 rounded-full mb-7"
-            style={{ background: 'rgba(24,95,165,0.08)', borderColor: 'rgba(24,95,165,0.2)', color: '#185FA5' }}
+            style={{
+              background: 'rgba(24,95,165,0.08)',
+              borderColor: 'rgba(24,95,165,0.2)',
+              color: '#185FA5',
+            }}
           >
             <motion.span
-              animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }}
+              animate={{ opacity: [1, 0.3, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
               className="w-1.5 h-1.5 rounded-full bg-blue-600"
+              style={{ willChange: 'opacity' }}
             />
             Sistema IoT · En desarrollo · Zihuatanejo
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-6xl font-black leading-none tracking-tight mb-5"
             style={{ color: '#042C53', letterSpacing: '-2px' }}
           >
             Tu alberca,<br />
             <span className="text-blue-700 relative">
               inteligente
-              <span className="absolute bottom-0 left-0 w-full h-1 rounded-full opacity-30" style={{ background: '#185FA5' }} />
+              <span
+                className="absolute bottom-0 left-0 w-full h-1 rounded-full opacity-30"
+                style={{ background: '#185FA5' }}
+              />
             </span>
             <br />y segura
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg leading-relaxed mb-9 max-w-md"
             style={{ color: '#5a6a7a' }}
           >
@@ -99,24 +125,36 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="flex gap-4"
           >
             <motion.button
               onClick={() => scrollTo('contacto')}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
+              transition={{ type: 'tween', duration: 0.15 }}
               className="text-white font-bold px-8 py-4 rounded-xl text-sm tracking-wide"
-              style={{ background: '#185FA5', boxShadow: '0 4px 20px rgba(24,95,165,0.35)' }}
+              style={{
+                background: '#185FA5',
+                boxShadow: '0 4px 20px rgba(24,95,165,0.35)',
+                willChange: 'transform',
+              }}
             >
               Solicitar demo →
             </motion.button>
             <motion.button
               onClick={() => scrollTo('como-funciona')}
-              whileHover={{ scale: 1.03, backgroundColor: 'rgba(24,95,165,0.05)' }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
+              transition={{ type: 'tween', duration: 0.15 }}
               className="font-semibold px-7 py-4 rounded-xl text-sm"
-              style={{ color: '#185FA5', border: '1.5px solid rgba(24,95,165,0.3)' }}
+              style={{
+                color: '#185FA5',
+                border: '1.5px solid rgba(24,95,165,0.3)',
+                willChange: 'transform',
+              }}
             >
               ¿Cómo funciona?
             </motion.button>
@@ -124,13 +162,24 @@ export default function Hero() {
 
           {/* Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="flex mt-12 rounded-2xl overflow-hidden"
-            style={{ border: '1px solid rgba(24,95,165,0.12)', background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(8px)' }}
+            style={{
+              border: '1px solid rgba(24,95,165,0.12)',
+              background: 'rgba(255,255,255,0.7)',
+              backdropFilter: 'blur(8px)',
+            }}
           >
             {stats.map((s, i) => (
-              <div key={i} className="flex-1 py-4 text-center"
-                style={{ borderRight: i < stats.length - 1 ? '1px solid rgba(24,95,165,0.1)' : 'none' }}>
+              <div
+                key={i}
+                className="flex-1 py-4 text-center"
+                style={{
+                  borderRight: i < stats.length - 1 ? '1px solid rgba(24,95,165,0.1)' : 'none',
+                }}
+              >
                 <div className="text-xl font-black text-blue-700">{s.n}</div>
                 <div className="text-xs mt-1 font-medium" style={{ color: '#8a9bb0' }}>{s.l}</div>
               </div>
@@ -140,7 +189,9 @@ export default function Hero() {
 
         {/* DERECHA — tarjeta 3D */}
         <motion.div
-          initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
           className="flex-1 flex justify-center items-center"
           style={{ perspective: '1000px' }}
         >
@@ -148,9 +199,15 @@ export default function Hero() {
 
             {/* Flotante arriba */}
             <motion.div
-              animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
               className="absolute -top-12 -right-8 rounded-xl px-4 py-3 z-20"
-              style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(24,95,165,0.12)', boxShadow: '0 8px 24px rgba(4,44,83,0.08)' }}
+              style={{
+                background: 'rgba(255,255,255,0.9)',
+                border: '1px solid rgba(24,95,165,0.12)',
+                boxShadow: '0 8px 24px rgba(4,44,83,0.08)',
+                willChange: 'transform',
+              }}
             >
               <div className="text-xl font-black text-blue-700">7.4</div>
               <div className="text-xs font-medium" style={{ color: '#8aa0bb' }}>pH óptimo</div>
@@ -158,9 +215,15 @@ export default function Hero() {
 
             {/* Flotante abajo */}
             <motion.div
-              animate={{ y: [0, 8, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
               className="absolute -bottom-10 -left-10 rounded-xl px-4 py-3 z-20"
-              style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(24,95,165,0.12)', boxShadow: '0 8px 24px rgba(4,44,83,0.08)' }}
+              style={{
+                background: 'rgba(255,255,255,0.9)',
+                border: '1px solid rgba(24,95,165,0.12)',
+                boxShadow: '0 8px 24px rgba(4,44,83,0.08)',
+                willChange: 'transform',
+              }}
             >
               <div className="text-xl font-black text-blue-700">28°C</div>
               <div className="text-xs font-medium" style={{ color: '#8aa0bb' }}>Temperatura ideal</div>
@@ -171,19 +234,31 @@ export default function Hero() {
               ref={cardRef}
               onMouseMove={handleMouse}
               onMouseLeave={handleLeave}
-              style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+              style={{
+                rotateX,
+                rotateY,
+                transformStyle: 'preserve-3d',
+                willChange: 'transform',
+              }}
               className="w-80 rounded-2xl"
               initial={{ rotateY: -12, rotateX: 4 }}
               whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
-              <div className="rounded-2xl p-7"
-                style={{ background: 'rgba(255,255,255,0.92)', border: '1px solid rgba(24,95,165,0.15)', boxShadow: '0 24px 64px rgba(4,44,83,0.12), 0 8px 24px rgba(24,95,165,0.08)' }}
+              <div
+                className="rounded-2xl p-7"
+                style={{
+                  background: 'rgba(255,255,255,0.92)',
+                  border: '1px solid rgba(24,95,165,0.15)',
+                  boxShadow: '0 24px 64px rgba(4,44,83,0.12), 0 8px 24px rgba(24,95,165,0.08)',
+                }}
               >
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center text-white font-black text-sm"
-                    style={{ background: '#185FA5', boxShadow: '0 4px 12px rgba(24,95,165,0.3)' }}>
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center text-white font-black text-sm"
+                    style={{ background: '#185FA5', boxShadow: '0 4px 12px rgba(24,95,165,0.3)' }}
+                  >
                     Zq
                   </div>
                   <div>
@@ -192,8 +267,10 @@ export default function Hero() {
                   </div>
                   <div className="ml-auto flex items-center gap-1.5 text-xs font-bold text-green-500">
                     <motion.span
-                      animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }}
+                      animate={{ opacity: [1, 0.3, 1] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
                       className="w-1.5 h-1.5 rounded-full bg-green-500"
+                      style={{ willChange: 'opacity' }}
                     />
                     EN VIVO
                   </div>
@@ -208,10 +285,14 @@ export default function Hero() {
                     </div>
                     <div className="rounded-full h-1.5" style={{ background: '#f0f4f8' }}>
                       <motion.div
-                        initial={{ width: 0 }} animate={{ width: p.pct }}
+                        initial={{ width: 0 }}
+                        animate={{ width: p.pct }}
                         transition={{ duration: 1.2, delay: 0.5 + i * 0.15, ease: 'easeOut' }}
                         className="h-1.5 rounded-full"
-                        style={{ background: 'linear-gradient(90deg, #378ADD, #185FA5)' }}
+                        style={{
+                          background: 'linear-gradient(90deg, #378ADD, #185FA5)',
+                          willChange: 'width',
+                        }}
                       />
                     </div>
                     <p className="text-xs font-semibold text-green-500 mt-1">✓ {p.status}</p>
@@ -219,23 +300,31 @@ export default function Hero() {
                 ))}
 
                 {/* Tags */}
-                <div className="flex gap-2 flex-wrap pt-4 mt-2" style={{ borderTop: '1px solid rgba(24,95,165,0.08)' }}>
+                <div
+                  className="flex gap-2 flex-wrap pt-4 mt-2"
+                  style={{ borderTop: '1px solid rgba(24,95,165,0.08)' }}
+                >
                   {[
                     { t: 'IoT Activo',    bg: '#E6F1FB', c: '#185FA5' },
                     { t: 'IA Predictiva', bg: '#EDE9FE', c: '#7c3aed' },
                     { t: 'Solar',         bg: '#DCFCE7', c: '#16a34a' },
                     { t: 'ESP32',         bg: '#E6F1FB', c: '#185FA5' },
                   ].map((tag) => (
-                    <span key={tag.t} className="text-xs font-bold px-2.5 py-1 rounded-md"
-                      style={{ background: tag.bg, color: tag.c }}>
+                    <span
+                      key={tag.t}
+                      className="text-xs font-bold px-2.5 py-1 rounded-md"
+                      style={{ background: tag.bg, color: tag.c }}
+                    >
                       {tag.t}
                     </span>
                   ))}
                 </div>
 
                 {/* Alert */}
-                <div className="mt-3 rounded-lg px-3 py-2.5 text-xs font-semibold text-green-600 flex items-center gap-2"
-                  style={{ background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
+                <div
+                  className="mt-3 rounded-lg px-3 py-2.5 text-xs font-semibold text-green-600 flex items-center gap-2"
+                  style={{ background: '#f0fdf4', border: '1px solid #bbf7d0' }}
+                >
                   ✓ Sin alertas — agua en perfectas condiciones
                 </div>
               </div>

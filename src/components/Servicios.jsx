@@ -5,7 +5,7 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6, delay }
+  transition: { duration: 0.5, delay }
 })
 
 const servicios = [
@@ -41,7 +41,11 @@ const servicios = [
 
 export default function Servicios() {
   return (
-    <div id="servicios" className="relative overflow-hidden py-24 px-12" style={{ background: '#eef5fd' }}>
+    <div
+      id="servicios"
+      className="relative overflow-hidden py-24 px-12"
+      style={{ background: '#eef5fd' }}
+    >
       <ServicesBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -56,7 +60,7 @@ export default function Servicios() {
               animate={{ opacity: [1, 0.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="w-1.5 h-1.5 rounded-full"
-              style={{ background: '#185FA5' }}
+              style={{ background: '#185FA5', willChange: 'opacity' }}
             />
             Nuestros servicios
           </motion.div>
@@ -86,18 +90,21 @@ export default function Servicios() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              transition={{ duration: 0.4, delay: 0.08 + i * 0.08 }}
+              whileHover={{ y: -8 }}
               className="rounded-3xl p-8 flex flex-col items-center text-center"
-              style={s.featured ? {
-                background: '#185FA5',
-                border: '1px solid rgba(24,95,165,0.4)',
-                boxShadow: '0 24px 56px rgba(24,95,165,0.30)',
-              } : {
-                background: 'rgba(255,255,255,0.88)',
-                border: '1px solid rgba(24,95,165,0.14)',
-                boxShadow: '0 8px 32px rgba(4,44,83,0.08)',
-                backdropFilter: 'blur(8px)',
+              style={{
+                willChange: 'transform',
+                ...(s.featured ? {
+                  background: '#185FA5',
+                  border: '1px solid rgba(24,95,165,0.4)',
+                  boxShadow: '0 24px 56px rgba(24,95,165,0.25)',
+                } : {
+                  background: 'rgba(255,255,255,0.88)',
+                  border: '1px solid rgba(24,95,165,0.14)',
+                  boxShadow: '0 8px 32px rgba(4,44,83,0.07)',
+                  backdropFilter: 'blur(8px)',
+                })
               }}
             >
               {/* Ícono */}
@@ -105,31 +112,42 @@ export default function Servicios() {
                 animate={{ scale: [1, 1.08, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
                 className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-6 relative"
-                style={{ background: s.featured ? 'rgba(255,255,255,0.15)' : 'rgba(24,95,165,0.08)' }}
+                style={{
+                  background: s.featured ? 'rgba(255,255,255,0.15)' : 'rgba(24,95,165,0.08)',
+                  willChange: 'transform',
+                }}
               >
                 {s.icon}
-                {/* Ring animado */}
                 <motion.div
                   animate={{ scale: [1, 1.15, 1], opacity: [0.5, 1, 0.5] }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
                   className="absolute inset-0 rounded-2xl"
-                  style={{ border: `1px solid ${s.featured ? 'rgba(255,255,255,0.2)' : 'rgba(24,95,165,0.15)'}` }}
+                  style={{
+                    border: `1px solid ${s.featured ? 'rgba(255,255,255,0.2)' : 'rgba(24,95,165,0.15)'}`,
+                    willChange: 'transform, opacity',
+                  }}
                 />
               </motion.div>
 
               {/* Título */}
-              <h3 className="font-black text-base mb-3" style={{ color: s.featured ? '#fff' : '#042C53', letterSpacing: '-0.3px' }}>
+              <h3
+                className="font-black text-base mb-3"
+                style={{ color: s.featured ? '#fff' : '#042C53', letterSpacing: '-0.3px' }}
+              >
                 {s.title}
               </h3>
 
               {/* Descripción */}
-              <p className="text-sm leading-relaxed mb-5 flex-1"
-                style={{ color: s.featured ? 'rgba(255,255,255,0.82)' : '#5a7a9a' }}>
+              <p
+                className="text-sm leading-relaxed mb-5 flex-1"
+                style={{ color: s.featured ? 'rgba(255,255,255,0.82)' : '#5a7a9a' }}
+              >
                 {s.desc}
               </p>
 
               {/* Tag */}
-              <span className="text-xs font-bold px-3 py-1.5 rounded-full"
+              <span
+                className="text-xs font-bold px-3 py-1.5 rounded-full"
                 style={s.featured ? {
                   background: 'rgba(255,255,255,0.20)',
                   color: '#fff',

@@ -6,7 +6,7 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6, delay }
+  transition: { duration: 0.5, delay }
 })
 
 const infoCards = [
@@ -49,7 +49,11 @@ export default function Contacto() {
   }
 
   return (
-    <div id="contacto" className="relative overflow-hidden py-24 px-12" style={{ background: '#eef5fd' }}>
+    <div
+      id="contacto"
+      className="relative overflow-hidden py-24 px-12"
+      style={{ background: '#eef5fd' }}
+    >
       <ContactoBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -64,7 +68,7 @@ export default function Contacto() {
               animate={{ opacity: [1, 0.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="w-1.5 h-1.5 rounded-full"
-              style={{ background: '#185FA5' }}
+              style={{ background: '#185FA5', willChange: 'opacity' }}
             />
             Contáctanos
           </motion.div>
@@ -88,7 +92,7 @@ export default function Contacto() {
 
         <div className="flex gap-8 items-start">
 
-          {/* Izquierda — info + cards */}
+          {/* Izquierda */}
           <div className="flex flex-col gap-5 w-80 flex-shrink-0">
             {infoCards.map((card, i) => (
               <motion.div
@@ -96,23 +100,25 @@ export default function Contacto() {
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-                whileHover={{ y: -4, scale: 1.02 }}
+                transition={{ duration: 0.4, delay: 0.08 + i * 0.08 }}
+                whileHover={{ y: -4 }}
                 className="rounded-2xl p-5 flex items-center gap-4"
                 style={{
                   background: 'rgba(255,255,255,0.88)',
                   border: `1px solid ${card.color}22`,
-                  boxShadow: '0 8px 24px rgba(4,44,83,0.07)',
+                  boxShadow: '0 8px 24px rgba(4,44,83,0.06)',
                   backdropFilter: 'blur(10px)',
-                  transform: 'perspective(600px) rotateY(4deg)',
-                  transformStyle: 'preserve-3d',
+                  willChange: 'transform',
                 }}
               >
                 <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
+                  animate={{ scale: [1, 1.08, 1] }}
                   transition={{ duration: 3, repeat: Infinity, delay: i * 0.4 }}
                   className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                  style={{ background: `${card.color}12` }}
+                  style={{
+                    background: `${card.color}12`,
+                    willChange: 'transform',
+                  }}
                 >
                   {card.icon}
                 </motion.div>
@@ -135,11 +141,11 @@ export default function Contacto() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
               className="rounded-2xl p-5"
               style={{
                 background: '#185FA5',
-                boxShadow: '0 16px 40px rgba(24,95,165,0.25)',
+                boxShadow: '0 16px 40px rgba(24,95,165,0.20)',
               }}
             >
               <div className="text-2xl mb-2">🎯</div>
@@ -155,15 +161,13 @@ export default function Contacto() {
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="flex-1 rounded-2xl p-8"
             style={{
               background: 'rgba(255,255,255,0.90)',
               border: '1px solid rgba(24,95,165,0.16)',
-              boxShadow: '0 24px 64px rgba(4,44,83,0.10)',
+              boxShadow: '0 24px 64px rgba(4,44,83,0.08)',
               backdropFilter: 'blur(12px)',
-              transform: 'perspective(800px) rotateY(-6deg) rotateX(2deg)',
-              transformStyle: 'preserve-3d',
             }}
           >
             <h3 className="font-black text-lg mb-6" style={{ color: '#042C53' }}>
@@ -183,7 +187,7 @@ export default function Contacto() {
                   value={form.nombre}
                   onChange={handleChange}
                   placeholder="Tu nombre"
-                  className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
                   style={{
                     background: '#f0f6ff',
                     border: '1px solid rgba(24,95,165,0.15)',
@@ -205,7 +209,7 @@ export default function Contacto() {
                   value={form.email}
                   onChange={handleChange}
                   placeholder="tucorreo@email.com"
-                  className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
                   style={{
                     background: '#f0f6ff',
                     border: '1px solid rgba(24,95,165,0.15)',
@@ -222,7 +226,7 @@ export default function Contacto() {
                   Tipo de alberca
                 </label>
                 <select
-                  className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
                   style={{
                     background: '#f0f6ff',
                     border: '1px solid rgba(24,95,165,0.15)',
@@ -250,7 +254,7 @@ export default function Contacto() {
                   onChange={handleChange}
                   placeholder="Cuéntanos sobre tu alberca y qué necesitas..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors resize-none"
                   style={{
                     background: '#f0f6ff',
                     border: '1px solid rgba(24,95,165,0.15)',
@@ -264,15 +268,17 @@ export default function Contacto() {
               {/* Botón */}
               <motion.button
                 onClick={handleSubmit}
-                whileHover={{ scale: 1.03, y: -2 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
+                transition={{ type: 'tween', duration: 0.15 }}
                 className="w-full py-4 rounded-xl font-black text-sm text-white mt-2"
                 style={{
                   background: enviado ? '#16a34a' : '#185FA5',
                   boxShadow: enviado
-                    ? '0 4px 18px rgba(22,163,74,0.35)'
-                    : '0 4px 18px rgba(24,95,165,0.35)',
+                    ? '0 4px 18px rgba(22,163,74,0.30)'
+                    : '0 4px 18px rgba(24,95,165,0.30)',
                   transition: 'background 0.4s',
+                  willChange: 'transform',
                 }}
               >
                 {enviado ? '✓ Mensaje enviado' : 'Solicitar demo gratuita →'}

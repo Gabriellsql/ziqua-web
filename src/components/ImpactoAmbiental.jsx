@@ -5,7 +5,7 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6, delay }
+  transition: { duration: 0.5, delay }
 })
 
 const impactos = [
@@ -49,7 +49,11 @@ const impactos = [
 
 export default function ImpactoAmbiental() {
   return (
-    <div id="impacto" className="relative overflow-hidden py-24 px-12" style={{ background: '#f0fdf4' }}>
+    <div
+      id="impacto"
+      className="relative overflow-hidden py-24 px-12"
+      style={{ background: '#f0fdf4' }}
+    >
       <ImpactoAmbientalBg />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -64,7 +68,7 @@ export default function ImpactoAmbiental() {
               animate={{ opacity: [1, 0.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="w-1.5 h-1.5 rounded-full"
-              style={{ background: '#16a34a' }}
+              style={{ background: '#16a34a', willChange: 'opacity' }}
             />
             Impacto ambiental
           </motion.div>
@@ -86,7 +90,7 @@ export default function ImpactoAmbiental() {
           </motion.p>
         </div>
 
-        {/* Cards principales */}
+        {/* Cards */}
         <div className="grid grid-cols-2 gap-6 mb-8 items-stretch">
           {impactos.map((item, i) => (
             <motion.div
@@ -94,18 +98,15 @@ export default function ImpactoAmbiental() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.4, delay: 0.08 + i * 0.08 }}
+              whileHover={{ y: -8 }}
               className="rounded-2xl p-7 flex gap-6 items-start"
               style={{
                 background: 'rgba(255,255,255,0.88)',
                 border: `1px solid ${item.color}22`,
-                boxShadow: `0 16px 40px rgba(4,44,83,0.07), 0 2px 8px ${item.color}15`,
+                boxShadow: `0 16px 40px rgba(4,44,83,0.06), 0 2px 8px ${item.color}12`,
                 backdropFilter: 'blur(10px)',
-                transform: i % 2 === 0
-                  ? 'perspective(700px) rotateY(3deg) rotateX(1deg)'
-                  : 'perspective(700px) rotateY(-3deg) rotateX(1deg)',
-                transformStyle: 'preserve-3d',
+                willChange: 'transform',
               }}
             >
               {/* Ícono + stat */}
@@ -114,14 +115,20 @@ export default function ImpactoAmbiental() {
                   animate={{ scale: [1, 1.08, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
                   className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl relative"
-                  style={{ background: `${item.color}12` }}
+                  style={{
+                    background: `${item.color}12`,
+                    willChange: 'transform',
+                  }}
                 >
                   {item.icon}
                   <motion.div
                     animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 3, repeat: Infinity, delay: i * 0.4 }}
                     className="absolute inset-0 rounded-2xl"
-                    style={{ border: `1px solid ${item.color}40` }}
+                    style={{
+                      border: `1px solid ${item.color}40`,
+                      willChange: 'transform, opacity',
+                    }}
                   />
                 </motion.div>
 
@@ -131,14 +138,16 @@ export default function ImpactoAmbiental() {
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 + i * 0.1, type: 'spring' }}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.08, type: 'spring', stiffness: 200 }}
                     className="text-2xl font-black"
-                    style={{ color: item.color }}
+                    style={{ color: item.color, willChange: 'transform, opacity' }}
                   >
                     {item.stat}
                   </motion.div>
-                  <div className="text-xs font-semibold mt-0.5 text-center"
-                    style={{ color: '#6a88a8', maxWidth: '70px', lineHeight: 1.3 }}>
+                  <div
+                    className="text-xs font-semibold mt-0.5 text-center"
+                    style={{ color: '#6a88a8', maxWidth: '70px', lineHeight: 1.3 }}
+                  >
                     {item.statLabel}
                   </div>
                 </div>
@@ -146,7 +155,10 @@ export default function ImpactoAmbiental() {
 
               {/* Texto */}
               <div className="flex flex-col flex-1">
-                <h3 className="font-black text-base mb-2" style={{ color: '#042C53', letterSpacing: '-0.3px' }}>
+                <h3
+                  className="font-black text-base mb-2"
+                  style={{ color: '#042C53', letterSpacing: '-0.3px' }}
+                >
                   {item.title}
                 </h3>
                 <p className="text-sm leading-relaxed flex-1 mb-4" style={{ color: '#5a7a9a' }}>
@@ -169,11 +181,12 @@ export default function ImpactoAmbiental() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="rounded-2xl p-8 flex items-center justify-between gap-8"
           style={{
             background: '#16a34a',
-            boxShadow: '0 20px 48px rgba(22,163,74,0.25)',
+            boxShadow: '0 20px 48px rgba(22,163,74,0.20)',
+            willChange: 'transform',
           }}
         >
           <div>
