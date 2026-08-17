@@ -102,7 +102,7 @@ export default function Contacto() {
                 style={{
                   background: 'rgba(255,255,255,0.88)',
                   border: `1px solid ${card.color}22`,
-                  boxShadow: `0 8px 24px rgba(4,44,83,0.07)`,
+                  boxShadow: '0 8px 24px rgba(4,44,83,0.07)',
                   backdropFilter: 'blur(10px)',
                   transform: 'perspective(600px) rotateY(4deg)',
                   transformStyle: 'preserve-3d',
@@ -228,6 +228,8 @@ export default function Contacto() {
                     border: '1px solid rgba(24,95,165,0.15)',
                     color: '#042C53',
                   }}
+                  onFocus={e => e.target.style.borderColor = '#185FA5'}
+                  onBlur={e => e.target.style.borderColor = 'rgba(24,95,165,0.15)'}
                 >
                   <option>Residencial privada</option>
                   <option>Hotel o resort</option>
@@ -266,9 +268,7 @@ export default function Contacto() {
                 whileTap={{ scale: 0.97 }}
                 className="w-full py-4 rounded-xl font-black text-sm text-white mt-2"
                 style={{
-                  background: enviado
-                    ? '#16a34a'
-                    : '#185FA5',
+                  background: enviado ? '#16a34a' : '#185FA5',
                   boxShadow: enviado
                     ? '0 4px 18px rgba(22,163,74,0.35)'
                     : '0 4px 18px rgba(24,95,165,0.35)',

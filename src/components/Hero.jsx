@@ -2,7 +2,6 @@ import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import HeroBg from './HeroBg'
 
-
 const params = [
   { name: 'pH del agua', value: '7.4', pct: '74%', status: 'Óptimo' },
   { name: 'Cloro libre (ORP)', value: '720 mV', pct: '82%', status: 'Normal' },
@@ -35,9 +34,14 @@ export default function Hero() {
     y.set(-20)
   }
 
+  const scrollTo = (id) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <div id="Hero" className="relative min-h-screen flex items-center justify-center px-12 py-20 overflow-hidden" style={{ background: '#eef5fd' }}>
-  <HeroBg />
+    <div id="hero" className="relative min-h-screen flex items-center justify-center px-12 py-20 overflow-hidden" style={{ background: '#eef5fd' }}>
+      <HeroBg />
 
       {/* Grid de fondo */}
       <div className="absolute inset-0 z-0"
@@ -99,13 +103,16 @@ export default function Hero() {
             className="flex gap-4"
           >
             <motion.button
-              whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
+              onClick={() => scrollTo('contacto')}
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.97 }}
               className="text-white font-bold px-8 py-4 rounded-xl text-sm tracking-wide"
               style={{ background: '#185FA5', boxShadow: '0 4px 20px rgba(24,95,165,0.35)' }}
             >
               Solicitar demo →
             </motion.button>
             <motion.button
+              onClick={() => scrollTo('como-funciona')}
               whileHover={{ scale: 1.03, backgroundColor: 'rgba(24,95,165,0.05)' }}
               whileTap={{ scale: 0.97 }}
               className="font-semibold px-7 py-4 rounded-xl text-sm"
@@ -165,15 +172,10 @@ export default function Hero() {
               onMouseMove={handleMouse}
               onMouseLeave={handleLeave}
               style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-              className="w-80 rounded-2xl p-7"
+              className="w-80 rounded-2xl"
               initial={{ rotateY: -12, rotateX: 4 }}
               whileHover={{ scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-              sx={{
-                background: 'rgba(255,255,255,0.92)',
-                border: '1px solid rgba(24,95,165,0.15)',
-                boxShadow: '0 24px 64px rgba(4,44,83,0.12), 0 8px 24px rgba(24,95,165,0.08)',
-              }}
             >
               <div className="rounded-2xl p-7"
                 style={{ background: 'rgba(255,255,255,0.92)', border: '1px solid rgba(24,95,165,0.15)', boxShadow: '0 24px 64px rgba(4,44,83,0.12), 0 8px 24px rgba(24,95,165,0.08)' }}
@@ -219,10 +221,10 @@ export default function Hero() {
                 {/* Tags */}
                 <div className="flex gap-2 flex-wrap pt-4 mt-2" style={{ borderTop: '1px solid rgba(24,95,165,0.08)' }}>
                   {[
-                    { t: 'IoT Activo', bg: '#E6F1FB', c: '#185FA5' },
+                    { t: 'IoT Activo',    bg: '#E6F1FB', c: '#185FA5' },
                     { t: 'IA Predictiva', bg: '#EDE9FE', c: '#7c3aed' },
-                    { t: 'Solar', bg: '#DCFCE7', c: '#16a34a' },
-                    { t: 'ESP32', bg: '#E6F1FB', c: '#185FA5' },
+                    { t: 'Solar',         bg: '#DCFCE7', c: '#16a34a' },
+                    { t: 'ESP32',         bg: '#E6F1FB', c: '#185FA5' },
                   ].map((tag) => (
                     <span key={tag.t} className="text-xs font-bold px-2.5 py-1 rounded-md"
                       style={{ background: tag.bg, color: tag.c }}>
