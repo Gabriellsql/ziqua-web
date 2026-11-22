@@ -31,7 +31,7 @@ export default function QuienesSomos() {
     >
       <QuienesSomosBg />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-12 py-24 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-24 w-full">
 
         {/* Header */}
         <div className="text-center mb-16">
@@ -50,7 +50,7 @@ export default function QuienesSomos() {
 
           <motion.h2 {...fadeUp(0.1)}
             className="font-black leading-none tracking-tight mb-5"
-            style={{ fontSize: '48px', color: '#042C53', letterSpacing: '-2px' }}
+            style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#042C53', letterSpacing: '-2px' }}
           >
             Una solución inteligente<br />
             para un problema <span style={{ color: '#185FA5' }}>real</span>
@@ -60,7 +60,7 @@ export default function QuienesSomos() {
             className="text-base leading-relaxed max-w-2xl mx-auto"
             style={{ color: '#4a6080' }}
           >
-            Ziqua nació en Zihuatanejo, Guerrero — una de las zonas turísticas más importantes
+            ZYQUA nació en Zihuatanejo, Guerrero — una de las zonas turísticas más importantes
             del país, con más de 375 albercas que dependen de mantenimiento manual, costoso y
             propenso a errores. Nuestra plataforma integra sensores IoT, inteligencia artificial
             y automatización para transformar ese proceso en algo preciso, eficiente y sustentable.
@@ -68,7 +68,7 @@ export default function QuienesSomos() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {stats.map((s, i) => (
             <motion.div
               key={i}
@@ -93,7 +93,7 @@ export default function QuienesSomos() {
         </div>
 
         {/* Misión + Visión + Valores */}
-        <div className="flex gap-6 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
 
           {/* Misión */}
           <motion.div
