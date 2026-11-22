@@ -2,12 +2,12 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 const navLinks = [
-  { label: 'Quiénes somos',   href: '#quienes-somos' },
-  { label: 'Servicios',       href: '#servicios'      },
-  { label: '¿Cómo funciona?', href: '#como-funciona'  },
-  { label: 'Tecnología',      href: '#tecnologia'     },
-  { label: 'Impacto',         href: '#impacto'        },
-  { label: 'Contacto',        href: '#contacto'       },
+  { label: 'Quiénes somos', href: '#quienes-somos' },
+  { label: 'Servicios', href: '#servicios' },
+  { label: '¿Cómo funciona?', href: '#como-funciona' },
+  { label: 'Tecnología', href: '#tecnologia' },
+  { label: 'Impacto', href: '#impacto' },
+  { label: 'Contacto', href: '#contacto' },
 ]
 
 export default function Navbar() {
@@ -44,9 +44,7 @@ export default function Navbar() {
         willChange: 'transform',
       }}
     >
-      <div className="max-w-6xl mx-auto px-12 py-3 flex items-center gap-8">
-
-        {/* Logo */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-3 flex items-center gap-4 sm:gap-8">
         <motion.div
           whileHover={{ scale: 1.03 }}
           transition={{ type: 'tween', duration: 0.15 }}
@@ -56,20 +54,16 @@ export default function Navbar() {
         >
           <img
             src="/logo.png"
-            alt="Ziqua logo"
+            alt="ZYQUA logo"
             className="object-contain"
-            style={{ width: '44px', height: '44px', verticalAlign: 'middle' }}
+            style={{ width: '40px', height: '40px', verticalAlign: 'middle' }}
           />
-          <span
-            className="font-black tracking-tight"
-            style={{ color: '#185FA5', fontSize: '22px', lineHeight: '44px' }}
-          >
-            Ziqua
+          <span className="font-black tracking-tight" style={{ color: '#185FA5', fontSize: '22px', lineHeight: '40px' }}>
+            ZYQUA
           </span>
         </motion.div>
 
-        {/* Links desktop */}
-        <ul className="hidden md:flex items-center gap-1 list-none">
+        <ul className="hidden md:flex items-center gap-1 list-none ml-auto">
           {navLinks.map((link) => (
             <li key={link.href}>
               <motion.button
@@ -77,11 +71,8 @@ export default function Navbar() {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'tween', duration: 0.15 }}
-                className="relative px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
-                style={{
-                  color: active === link.href ? '#185FA5' : '#5a6a7a',
-                  willChange: 'transform',
-                }}
+                className="relative px-3 lg:px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                style={{ color: active === link.href ? '#185FA5' : '#5a6a7a', willChange: 'transform' }}
               >
                 {link.label}
                 {active === link.href && (
@@ -96,11 +87,13 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Hamburger mobile */}
         <motion.button
-          whileTap={{ scale: 0.95 }}
+          type="button"
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2 ml-auto"
+          whileTap={{ scale: 0.95 }}
+          className="md:hidden flex flex-col gap-1.5 p-3 ml-auto rounded-lg"
           style={{ willChange: 'transform' }}
         >
           {[0, 1, 2].map((i) => (
@@ -117,31 +110,30 @@ export default function Navbar() {
             />
           ))}
         </motion.button>
-
       </div>
 
-      {/* Menú mobile */}
       <motion.div
         initial={false}
         animate={{ height: menuOpen ? 'auto' : 0, opacity: menuOpen ? 1 : 0 }}
         transition={{ duration: 0.25 }}
         className="overflow-hidden md:hidden"
         style={{
-          background: 'rgba(255,255,255,0.97)',
+          background: 'rgba(255,255,255,0.98)',
           borderTop: '1px solid rgba(24,95,165,0.08)',
           willChange: 'height, opacity',
         }}
       >
-        <div className="px-8 py-4 flex flex-col gap-2">
+        <div className="px-5 sm:px-8 py-4 flex flex-col gap-1">
           {navLinks.map((link) => (
             <motion.button
               key={link.href}
               onClick={() => scrollTo(link.href)}
               whileHover={{ x: 4 }}
               transition={{ type: 'tween', duration: 0.15 }}
-              className="text-sm font-semibold py-2 text-left"
+              className="text-sm font-semibold py-3 px-2 text-left rounded-lg"
               style={{
                 color: active === link.href ? '#185FA5' : '#5a6a7a',
+                background: active === link.href ? 'rgba(24,95,165,0.06)' : 'transparent',
                 willChange: 'transform',
               }}
             >
@@ -150,7 +142,6 @@ export default function Navbar() {
           ))}
         </div>
       </motion.div>
-
     </motion.nav>
   )
 }
