@@ -12,7 +12,7 @@ const tecnologias = [
   {
     icon: '⚡',
     title: 'ESP32',
-    desc: 'Microcontrolador con WiFi y Bluetooth integrado. Es el cerebro del hardware de Ziqua, responsable de leer sensores y transmitir datos en tiempo real.',
+    desc: 'Microcontrolador con WiFi y Bluetooth integrado. Es el cerebro del hardware de ZYQUA, responsable de leer sensores y transmitir datos en tiempo real.',
     tags: ['WiFi', 'Bluetooth', 'Bajo consumo'],
     color: '#d97706',
   },
@@ -26,7 +26,7 @@ const tecnologias = [
   {
     icon: '📱',
     title: 'Flutter',
-    desc: 'Framework de Google para desarrollo móvil multiplataforma. La app de Ziqua corre en iOS y Android con una sola base de código, con UI fluida y reactiva.',
+    desc: 'Framework de Google para desarrollo móvil multiplataforma. La app de ZYQUA corre en iOS y Android con una sola base de código, con UI fluida y reactiva.',
     tags: ['iOS', 'Android', 'Dart'],
     color: '#185FA5',
   },
@@ -47,7 +47,7 @@ const tecnologias = [
   {
     icon: '☀️',
     title: 'Energía solar',
-    desc: 'Panel solar y batería de respaldo integrados al sistema para operación autónoma. Ziqua funciona sin depender de la red eléctrica, reduciendo costos y huella de carbono.',
+    desc: 'Panel solar y batería de respaldo integrados al sistema para operación autónoma. ZYQUA funciona sin depender de la red eléctrica, reduciendo costos y huella de carbono.',
     tags: ['Solar', 'Autónomo', 'Verde'],
     color: '#059669',
   },
@@ -57,7 +57,7 @@ export default function Tecnologia() {
   return (
     <div
       id="tecnologia"
-      className="relative overflow-hidden py-24 px-12"
+      className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-12"
       style={{ background: '#fff8f0' }}
     >
       <TecnologiaBg />
@@ -81,10 +81,10 @@ export default function Tecnologia() {
 
           <motion.h2 {...fadeUp(0.1)}
             className="font-black leading-none tracking-tight mb-5"
-            style={{ fontSize: '44px', color: '#042C53', letterSpacing: '-1.5px' }}
+            style={{ fontSize: 'clamp(1.9rem, 5vw, 2.75rem)', color: '#042C53', letterSpacing: '-1.5px' }}
           >
             El stack tecnológico<br />
-            <span style={{ color: '#d97706' }}>detrás de Ziqua</span>
+            <span style={{ color: '#d97706' }}>detrás de ZYQUA</span>
           </motion.h2>
 
           <motion.p {...fadeUp(0.2)}
