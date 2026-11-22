@@ -12,7 +12,7 @@ const impactos = [
   {
     icon: '☀️',
     title: 'Energía solar autónoma',
-    desc: 'Ziqua opera con un panel solar y batería de respaldo integrados. No depende de la red eléctrica, reduciendo costos operativos y emisiones de carbono.',
+    desc: 'ZYQUA opera con un panel solar y batería de respaldo integrados. No depende de la red eléctrica, reduciendo costos operativos y emisiones de carbono.',
     tag: 'Solar · Autónomo',
     color: '#d97706',
     stat: '100%',
@@ -21,7 +21,7 @@ const impactos = [
   {
     icon: '🧪',
     title: 'Dosificación precisa',
-    desc: 'Al dosificar solo la cantidad exacta de químicos necesarios, Ziqua reduce el desperdicio de cloro y otros reactivos hasta en un 40% comparado con métodos manuales.',
+    desc: 'Al dosificar solo la cantidad exacta de químicos necesarios, ZYQUA reduce el desperdicio de cloro y otros reactivos hasta en un 40% comparado con métodos manuales.',
     tag: 'Químicos · Eficiencia',
     color: '#0891b2',
     stat: '-40%',
@@ -51,7 +51,7 @@ export default function ImpactoAmbiental() {
   return (
     <div
       id="impacto"
-      className="relative overflow-hidden py-24 px-12"
+      className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-12"
       style={{ background: '#f0fdf4' }}
     >
       <ImpactoAmbientalBg />
@@ -75,7 +75,7 @@ export default function ImpactoAmbiental() {
 
           <motion.h2 {...fadeUp(0.1)}
             className="font-black leading-none tracking-tight mb-5"
-            style={{ fontSize: '44px', color: '#042C53', letterSpacing: '-1.5px' }}
+            style={{ fontSize: 'clamp(1.9rem, 5vw, 2.75rem)', color: '#042C53', letterSpacing: '-1.5px' }}
           >
             Tecnología que cuida<br />
             <span style={{ color: '#16a34a' }}>el planeta</span>
@@ -85,7 +85,7 @@ export default function ImpactoAmbiental() {
             className="text-base leading-relaxed max-w-xl mx-auto"
             style={{ color: '#4a6080' }}
           >
-            Ziqua no solo mantiene tu alberca limpia — lo hace de forma inteligente,
+            ZYQUA no solo mantiene tu alberca limpia — lo hace de forma inteligente,
             eficiente y responsable con el medio ambiente.
           </motion.p>
         </div>
@@ -182,7 +182,7 @@ export default function ImpactoAmbiental() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="rounded-2xl p-8 flex items-center justify-between gap-8"
+          className="rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 gap-8"
           style={{
             background: '#16a34a',
             boxShadow: '0 20px 48px rgba(22,163,74,0.20)',
@@ -191,7 +191,7 @@ export default function ImpactoAmbiental() {
         >
           <div>
             <h3 className="font-black text-xl text-white mb-2">
-              Ziqua es sustentable por diseño
+              ZYQUA es sustentable por diseño
             </h3>
             <p className="text-sm" style={{ color: 'rgba(255,255,255,0.82)' }}>
               Cada decisión de diseño fue tomada pensando en minimizar el impacto ambiental

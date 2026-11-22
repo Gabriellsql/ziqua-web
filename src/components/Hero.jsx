@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <div
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-12 py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-12 py-14 sm:py-20 overflow-hidden"
       style={{ background: '#eef5fd' }}
     >
       <HeroBg />
@@ -71,10 +71,10 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 flex items-center gap-16 max-w-6xl w-full">
+      <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 max-w-6xl w-full">
 
         {/* IZQUIERDA */}
-        <div className="flex-1">
+        <div className="flex-1 w-full min-w-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,7 +120,7 @@ export default function Hero() {
             className="text-lg leading-relaxed mb-9 max-w-md"
             style={{ color: '#5a6a7a' }}
           >
-            Ziqua monitorea pH, cloro, temperatura y turbidez en tiempo real.
+            ZYQUA monitorea los parámetros del agua, como pH, ORP y temperatura.
             Dosificación automática, IA predictiva y alertas desde tu celular.
           </motion.p>
 
@@ -128,14 +128,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex gap-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
           >
             <motion.button
               onClick={() => scrollTo('contacto')}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: 'tween', duration: 0.15 }}
-              className="text-white font-bold px-8 py-4 rounded-xl text-sm tracking-wide"
+              className="w-full sm:w-auto text-white font-bold px-6 sm:px-8 py-4 rounded-xl text-sm tracking-wide"
               style={{
                 background: '#185FA5',
                 boxShadow: '0 4px 20px rgba(24,95,165,0.35)',
@@ -149,7 +149,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: 'tween', duration: 0.15 }}
-              className="font-semibold px-7 py-4 rounded-xl text-sm"
+              className="w-full sm:w-auto font-semibold px-6 sm:px-7 py-4 rounded-xl text-sm"
               style={{
                 color: '#185FA5',
                 border: '1.5px solid rgba(24,95,165,0.3)',
@@ -165,7 +165,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex mt-12 rounded-2xl overflow-hidden"
+            className="grid grid-cols-2 sm:grid-cols-4 mt-8 sm:mt-12 rounded-2xl overflow-hidden"
             style={{
               border: '1px solid rgba(24,95,165,0.12)',
               background: 'rgba(255,255,255,0.7)',
@@ -175,7 +175,7 @@ export default function Hero() {
             {stats.map((s, i) => (
               <div
                 key={i}
-                className="flex-1 py-4 text-center"
+                className="py-4 text-center"
                 style={{
                   borderRight: i < stats.length - 1 ? '1px solid rgba(24,95,165,0.1)' : 'none',
                 }}
@@ -192,7 +192,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="flex-1 flex justify-center items-center"
+          className="flex-1 w-full min-w-0 flex justify-center items-center mt-8 lg:mt-0"
           style={{ perspective: '1000px' }}
         >
           <div className="relative">
@@ -201,7 +201,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-12 -right-8 rounded-xl px-4 py-3 z-20"
+              className="absolute -top-5 sm:-top-8 right-1 sm:-right-5 rounded-xl px-3 sm:px-4 py-2 sm:py-3 z-20"
               style={{
                 background: 'rgba(255,255,255,0.9)',
                 border: '1px solid rgba(24,95,165,0.12)',
@@ -217,7 +217,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              className="absolute -bottom-10 -left-10 rounded-xl px-4 py-3 z-20"
+              className="absolute -bottom-5 sm:-bottom-8 left-1 sm:-left-5 rounded-xl px-3 sm:px-4 py-2 sm:py-3 z-20"
               style={{
                 background: 'rgba(255,255,255,0.9)',
                 border: '1px solid rgba(24,95,165,0.12)',
@@ -240,7 +240,7 @@ export default function Hero() {
                 transformStyle: 'preserve-3d',
                 willChange: 'transform',
               }}
-              className="w-80 rounded-2xl"
+              className="w-full max-w-sm rounded-2xl"
               initial={{ rotateY: -12, rotateX: 4 }}
               whileHover={{ scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -262,7 +262,7 @@ export default function Hero() {
                     Zq
                   </div>
                   <div>
-                    <p className="font-bold text-sm" style={{ color: '#042C53' }}>Panel Ziqua</p>
+                    <p className="font-bold text-sm" style={{ color: '#042C53' }}>Panel ZYQUA</p>
                     <p className="text-xs" style={{ color: '#8aa0bb' }}>Estado en tiempo real</p>
                   </div>
                   <div className="ml-auto flex items-center gap-1.5 text-xs font-bold text-green-500">
@@ -308,7 +308,7 @@ export default function Hero() {
                     { t: 'IoT Activo',    bg: '#E6F1FB', c: '#185FA5' },
                     { t: 'IA Predictiva', bg: '#EDE9FE', c: '#7c3aed' },
                     { t: 'Solar',         bg: '#DCFCE7', c: '#16a34a' },
-                    { t: 'ESP32',         bg: '#E6F1FB', c: '#185FA5' },
+                    { t: 'PCB',            bg: '#E6F1FB', c: '#185FA5' },
                   ].map((tag) => (
                     <span
                       key={tag.t}

@@ -44,10 +44,10 @@ export default function Footer() {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-12 pt-8 pb-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 pt-8 pb-12">
 
         {/* Top */}
-        <div className="flex gap-16 mb-14">
+        <div className="flex flex-col lg:flex-row flex-wrap lg:flex-nowrap gap-10 lg:gap-16 mb-14">
 
           {/* Logo y descripción */}
           <motion.div
@@ -67,7 +67,7 @@ export default function Footer() {
               >
                 Zq
               </div>
-              <span className="text-xl font-black text-white tracking-tight">Ziqua</span>
+              <span className="text-xl font-black text-white tracking-tight">ZYQUA</span>
             </div>
             <p
               className="text-sm leading-relaxed mb-6 max-w-xs"
@@ -148,7 +148,7 @@ export default function Footer() {
                 ¿Tu alberca lista?
               </h4>
               <p className="text-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                Agenda una demo gratuita y ve Ziqua en acción.
+                Agenda una demo gratuita y ve ZYQUA en acción.
               </p>
             </div>
             <motion.button
@@ -176,7 +176,7 @@ export default function Footer() {
         />
 
         {/* Bottom */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -185,7 +185,7 @@ export default function Footer() {
             className="text-xs"
             style={{ color: 'rgba(255,255,255,0.35)', willChange: 'opacity' }}
           >
-            © 2026 Ziqua · Instituto Tecnológico de la Costa Grande · Zihuatanejo, Guerrero
+            © 2026 ZYQUA · Instituto Tecnológico de la Costa Grande · Zihuatanejo, Guerrero
           </motion.p>
 
           <motion.div

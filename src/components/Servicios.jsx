@@ -43,7 +43,7 @@ export default function Servicios() {
   return (
     <div
       id="servicios"
-      className="relative overflow-hidden py-24 px-12"
+      className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-12"
       style={{ background: '#eef5fd' }}
     >
       <ServicesBg />
@@ -67,9 +67,9 @@ export default function Servicios() {
 
           <motion.h2 {...fadeUp(0.1)}
             className="font-black leading-none tracking-tight mb-5"
-            style={{ fontSize: '44px', color: '#042C53', letterSpacing: '-1.5px' }}
+            style={{ fontSize: 'clamp(1.9rem, 5vw, 2.75rem)', color: '#042C53', letterSpacing: '-1.5px' }}
           >
-            Todo lo que <span style={{ color: '#185FA5' }}>Ziqua</span> hace<br />
+            Todo lo que <span style={{ color: '#185FA5' }}>ZYQUA</span> hace<br />
             por tu alberca
           </motion.h2>
 
@@ -83,7 +83,7 @@ export default function Servicios() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {servicios.map((s, i) => (
             <motion.div
               key={i}

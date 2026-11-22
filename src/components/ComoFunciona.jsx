@@ -48,7 +48,7 @@ export default function ComoFunciona() {
   return (
     <div
       id="como-funciona"
-      className="relative overflow-hidden py-24 px-12"
+      className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-12"
       style={{ background: '#f0faf8' }}
     >
       <ComoFuncionaBg />
@@ -80,7 +80,7 @@ export default function ComoFunciona() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-black leading-none tracking-tight mb-5"
-            style={{ fontSize: '44px', color: '#042C53', letterSpacing: '-1.5px' }}
+            style={{ fontSize: 'clamp(1.9rem, 5vw, 2.75rem)', color: '#042C53', letterSpacing: '-1.5px' }}
           >
             Del sensor a tu celular<br />
             <span style={{ color: '#0d9488' }}>en segundos</span>
@@ -94,13 +94,13 @@ export default function ComoFunciona() {
             className="text-base leading-relaxed max-w-xl mx-auto"
             style={{ color: '#4a6080' }}
           >
-            Ziqua combina hardware, conectividad, inteligencia artificial y automatización
+            ZYQUA combina hardware, conectividad, inteligencia artificial y automatización
             en un flujo continuo que trabaja por ti sin parar.
           </motion.p>
         </div>
 
         {/* Pasos */}
-        <div className="grid grid-cols-5 gap-5 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch">
           {pasos.map((p, i) => (
             <motion.div
               key={i}
