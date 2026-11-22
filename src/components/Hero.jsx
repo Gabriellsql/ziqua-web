@@ -246,7 +246,7 @@ export default function Hero() {
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
               <div
-                className="rounded-2xl p-7"
+                className="rounded-2xl p-5 sm:p-7"
                 style={{
                   background: 'rgba(255,255,255,0.92)',
                   border: '1px solid rgba(24,95,165,0.15)',
