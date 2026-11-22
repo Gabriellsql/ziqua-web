@@ -91,7 +91,7 @@ export default function ImpactoAmbiental() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-2 gap-6 mb-8 items-stretch">
+        <div className="zyqua-mobile-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 items-stretch">
           {impactos.map((item, i) => (
             <motion.div
               key={i}
@@ -100,7 +100,7 @@ export default function ImpactoAmbiental() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.08 + i * 0.08 }}
               whileHover={{ y: -8 }}
-              className="rounded-2xl p-7 flex gap-6 items-start"
+              className="zyqua-mobile-card rounded-2xl p-7 flex gap-6 items-start"
               style={{
                 background: 'rgba(255,255,255,0.88)',
                 border: `1px solid ${item.color}22`,
@@ -182,7 +182,7 @@ export default function ImpactoAmbiental() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 gap-8"
+          className="rounded-2xl p-5 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6"
           style={{
             background: '#16a34a',
             boxShadow: '0 20px 48px rgba(22,163,74,0.20)',
