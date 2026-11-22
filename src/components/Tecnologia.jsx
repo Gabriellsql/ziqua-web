@@ -97,7 +97,7 @@ export default function Tecnologia() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-3 gap-6 items-stretch">
+        <div className="zyqua-mobile-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {tecnologias.map((tech, i) => (
             <motion.div
               key={i}
@@ -106,7 +106,7 @@ export default function Tecnologia() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.06 + i * 0.08 }}
               whileHover={{ y: -8 }}
-              className="rounded-2xl p-7 flex flex-col"
+              className="zyqua-mobile-card rounded-2xl p-7 flex flex-col"
               style={{
                 background: 'rgba(255,255,255,0.88)',
                 border: `1px solid ${tech.color}22`,
