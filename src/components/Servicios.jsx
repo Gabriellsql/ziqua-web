@@ -83,7 +83,7 @@ export default function Servicios() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="zyqua-mobile-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {servicios.map((s, i) => (
             <motion.div
               key={i}
@@ -92,7 +92,7 @@ export default function Servicios() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.08 + i * 0.08 }}
               whileHover={{ y: -8 }}
-              className="rounded-3xl p-8 flex flex-col items-center text-center"
+              className="zyqua-mobile-card rounded-3xl p-8 flex flex-col items-center text-center"
               style={{
                 willChange: 'transform',
                 ...(s.featured ? {
