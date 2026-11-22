@@ -51,7 +51,7 @@ export default function Contacto() {
   return (
     <div
       id="contacto"
-      className="relative overflow-hidden py-24 px-12"
+      className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-12"
       style={{ background: '#eef5fd' }}
     >
       <ContactoBg />
@@ -75,7 +75,7 @@ export default function Contacto() {
 
           <motion.h2 {...fadeUp(0.1)}
             className="font-black leading-none tracking-tight mb-5"
-            style={{ fontSize: '44px', color: '#042C53', letterSpacing: '-1.5px' }}
+            style={{ fontSize: 'clamp(1.9rem, 5vw, 2.75rem)', color: '#042C53', letterSpacing: '-1.5px' }}
           >
             ¿Listo para automatizar<br />
             <span style={{ color: '#185FA5' }}>tu alberca?</span>
@@ -85,15 +85,15 @@ export default function Contacto() {
             className="text-base leading-relaxed max-w-xl mx-auto"
             style={{ color: '#4a6080' }}
           >
-            Escríbenos y agenda una demo gratuita. Te mostramos cómo Ziqua
+            Escríbenos y agenda una demo gratuita. Te mostramos cómo ZYQUA
             puede transformar el mantenimiento de tu alberca desde el primer día.
           </motion.p>
         </div>
 
-        <div className="flex gap-8 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
 
           {/* Izquierda */}
-          <div className="flex flex-col gap-5 w-80 flex-shrink-0">
+          <div className="flex flex-col gap-5 w-full lg:w-80 flex-shrink-0">
             {infoCards.map((card, i) => (
               <motion.div
                 key={i}
